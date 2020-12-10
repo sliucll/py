@@ -123,6 +123,14 @@ elif year % 4 == 0 and year % 100 != 0:
 print(leapYear)
 
 /*10. Write a program that takes an integer and sets isEven to True if the argument is an even number and False if it is odd. (the mod operator could be useful!)*/
+def is_even(n):
+    if n % 2 == 0:
+        print(True)
+    if n % 2 != 0:
+        print(False)
+        
+is_even(888)
+
 
 
     
