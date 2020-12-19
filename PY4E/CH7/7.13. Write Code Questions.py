@@ -303,5 +303,42 @@ for line in lines:
     if date[2:5] == "Jun":
         print(date + " had a low value of " + values[3])
 
-#10. 
+#10. Write a function that takes the stocks file and the abbreviation for a month (i.e. Jan, Feb) 
+#as parameters and returns the average value of all the closing prices during that month from all the years given (Hint: Use a counter variable).
+#ALT 1
+def monthAvg(file, month):
+    file = open(file, "r")
+    lines = file.readlines()
+    count = 0
+    sum = 0
+    for line in lines:
+        values = line.split(",")
+        dateParts = values[0].split("-")
+        if dateParts[1] == month:
+            close = float(values[4])
+            sum = sum + close
+            count += 1
+    return sum / count
+
+monthAvg("stocks.txt","Jun")
+
+#ALT 2
+file = open("stocks.txt", "r")
+lines = file.readlines()
+
+def avg_closing(file,m_user):
+    tot = 0
+    count = 0
+    for line in lines:
+        values = line.split(",")
+        date = values[0]
+        month = date[2:5]
+        if month == m_user:
+            close_price = float(values[4])
+            tot = tot + close_price
+            count = count + 1
+    return tot/count
+
+avg_closing("stocks.txt","Jun")
+        
 
