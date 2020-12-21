@@ -39,4 +39,36 @@ print(data_last)
 plant = data_last[0][0]
 print(plant)
 
-#6. 
+#6. Write a function called countWords that returns a count of how many words in the pased list, lst, have length 5.
+def countWords(lst):
+    count = 0
+    for word in lst:
+        if len(word) == 5:
+            count = count + 1
+    return count
+
+#7. Write a function called chop that takes a list lst and modifies it, removing the first and last elements.
+def chop(lst):
+    del lst[0]
+    del lst[-1]
+    return(lst)
+
+#8. see #7
+
+#9. Sum all the elements in the list lst up to but not including the first even number.
+def sumUntilEven(lst):
+    total = 0
+    element = 0
+    while element < len(lst) and lst[element] % 2 != 0:
+        total = total + lst[element]
+        print("tot:",total)
+        element = element + 1
+        print("ele:",element)
+    return total
+
+sumUntilEven([1,3,5,7,9])
+
+#10. Write a function called reverse that returns the reverse of a passed list.
+def reverse(lst):
+    lst.reverse()
+    return lst
