@@ -49,8 +49,8 @@ print(tup_list)
 word_counter = {}
 with open("heineken.txt","r") as filename:
     lines = filename.readlines()
-    for line in lines.split():
-        for word in line:
+    for line in lines:
+        for word in line.split():
             word_counter[word] = word_counter.get(word,0) + 1
     list_of_tuples = list(word_counter.items())
     list_of_tuples.sort(key = lambda x: x[1], reverse = True)
@@ -67,3 +67,27 @@ print(list_for_kv_pairs)
 
 #Q-7 Reorder the code blocks to put the words in the mbox-short.txt file into a dictionary, where the keys are words and the values are their lengths. 
 #Then, print a list of the dictionary's key-value pairs in alphabetical order.
+dict = {}
+with open('mbox-short.txt') as filename:
+    lines = filename.readlines()
+    for line in lines:   
+        for word in line.split():
+            dict[word] = dict.get(word,len(word))
+            print(word,dict[word])
+    dict = sorted(dict.items())
+    print(dict)
+    
+#Q-9 Construct a block of code that capitalizes every item in tuple 'tup'.
+tup = ('wolverine','Ann Arbor','Winter','Fall','michigan')
+tup = ('Wolverine',) + tup[1:4] + ('Michigan',)
+print(tup)
+
+#Q-10 Construct a block of code to transform the grocery_dictionary into a list of tuples, then sort the list by the dictionary's values in ascending order.
+grocery_dictionary = {'chicken':5,'lettuce':3,'orange juice':4,'bagels':2.50,'bacon':4.25,'bread':8}
+grocery_list = list(grocery_dictionary.items())
+#ascending order
+grocery_list.sort(key = lambda x: x[1])
+print(grocery_list)
+#descending order
+#grocery_list.sort(key = lambda x: x[1],reverse = True)
+#print(grocery_list)
